@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-
+import useFeatureFlag from './UsefeatureFlag';
 function App() {
+  const isNewFeatureEnabled = useFeatureFlag('newFeature');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+  
+
+ 
+    <div className="my-component">
+      {isNewFeatureEnabled ? (
+        <div className="feature-enabled">New Feature is Enabled!</div>
+      ) : (
+        <div className="feature-disabled">New Feature is Disabled.</div>
+      )}
+    </div>
     </div>
   );
 }
